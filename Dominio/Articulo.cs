@@ -28,6 +28,5 @@ namespace Dominio
 
         public float Precio { get; set; }
 
-        public int Cantidad { get; set; }
     }
 }

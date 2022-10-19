@@ -10,6 +10,7 @@ namespace Dominio
     {
         public string Usuario { get; set; }
         List<Articulo> ArticuloList { get; set; }
+        public DateTime FechaCompra { get; set; }
         public float ImporteTotal { get; set; }
     }
 }
