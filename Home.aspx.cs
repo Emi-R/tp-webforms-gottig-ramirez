@@ -20,6 +20,7 @@ namespace tp_webforms_gottig_ramirez
         {
             if (!IsPostBack)
             {
+                //funciones al cargar la pagina, para listar articulos y cargar la session
                 listarArticulos();
                 crearSessionCarrito();
             }
@@ -44,16 +45,19 @@ namespace tp_webforms_gottig_ramirez
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            //si el carrito está nulo, lo agregi a la Session
             if (Session["Carrito"] == null)
             {
                 carrito = new Carrito();
                 Session.Add("Carrito", carrito);
             }
 
+            //busco id del Articulo seleccionado
             int idArticuloSeleccionado = Convert.ToInt32(((Button)sender).CommandArgument);
 
             List<CarritoDetalle> detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
 
+            //si la session del carrito no está vacia, busco el Articulo y sumo cantidad, si no lo agrego a la lista de la Session
             if (detalleCarritoList != null && detalleCarritoList.Any(x => x.IdArticulo == idArticuloSeleccionado)) detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado).Cantidad++;
             else
             {
