@@ -1,0 +1,16 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.title {
+    font-weight: 500 !important;
+    font-style:italic;
+}
+
+.card
+{
+    border-width:1.5px !important;
+    border-color:#0e0e0e7b !important;
+}
