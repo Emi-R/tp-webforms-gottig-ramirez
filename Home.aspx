@@ -12,15 +12,15 @@
 
             <div class="card m-4" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="<%: item.ImagenUrl %>" class="img-fluid rounded-start" alt="...">
+                    <div class="col-md-3">
+                        <img src="<%: item.ImagenUrl %>" class="img-fluid rounded-start mt-4" alt="...">
                     </div>
                     <div class="col-md-5">
                         <div class="card-body">
                             <h5 class="card-title"><%: item.Nombre %></h5>
-                            <p class="card-text"><small class="text-muted"> Cod: <%: item.Codigo %></small></p>
+                            <p class="card-text"><small class="text-muted">Cod: <%: item.Codigo %></small></p>
                             <p class="card-text"><%: item.Descripcion %></p>
-                            <p class="card-text"> $ <%: item.Precio %></p>
+                            <p class="card-text mt-2">$ <%: item.Precio %></p>
                         </div>
                     </div>
                     <div class="col-md-3 m-auto">
@@ -31,7 +31,6 @@
             </div>
             <% } %>
         </div>
-        
     </div>
 
 </asp:Content>
