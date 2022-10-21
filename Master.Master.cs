@@ -31,10 +31,14 @@ namespace tp_webforms_gottig_ramirez
             if (Session["Carrito"] != null)
             {
 
-                RepeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
-                RepeaterCarrito.DataBind();
+                repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
+                repeaterCarrito.DataBind();
             }
         }
 
+        protected void btnEliminarFav_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

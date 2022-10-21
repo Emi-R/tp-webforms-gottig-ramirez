@@ -79,8 +79,10 @@ namespace tp_webforms_gottig_ramirez
                     Descripcion = articuloSeleccionado.Descripcion,
                     Cantidad = 1,
                     PrecioUnitario = articuloSeleccionado.Precio,
-                    PrecioTotal = articuloSeleccionado.Precio
                 };
+
+                ((Carrito)Session["Carrito"]).ImporteTotal += nuevoDetalle.PrecioUnitario;
+                nuevoDetalle.PrecioTotal = ((Carrito)Session["Carrito"]).ImporteTotal;
                 detalleCarritoList.Add(nuevoDetalle);
             }
             detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
