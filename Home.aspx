@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="col-md-3 m-auto">
                                                 <asp:Button ID="btnAgregar" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" class="btn btn-outline-success" runat="server" Text="Agregar" />
-                                                <asp:Button ID="btnFavorito" class="btn btn-outline-danger mt-3" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" runat="server" Text="Favorito" />
+                                                <asp:Button ID="btnFavorito" class="btn btn-outline-danger mt-3" OnClick="btnFavorito_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" runat="server" Text="Favorito" />
                                             </div>
                                         </div>
 

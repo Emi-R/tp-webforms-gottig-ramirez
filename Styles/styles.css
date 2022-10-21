@@ -6,15 +6,21 @@ body {
 
 .title {
     font-weight: 500 !important;
-    font-style:italic;
+    font-style: italic;
 }
 
 .card {
     border-width: 2px !important;
     border-color: #0e0e0e7b !important;
-    height:100% !important;
+    height: 100% !important;
 }
 
 .precio {
+}
 
+.icon-favoritos {
+    color: white !important;
+    font-size: 30px;
+    text-decoration:none !important;
+    margin:10px
 }

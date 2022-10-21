@@ -23,6 +23,7 @@ namespace tp_webforms_gottig_ramirez
                 //funciones al cargar la pagina, para listar articulos y cargar la session
                 listarArticulos();
                 crearSessionCarrito();
+                crearSessionFavoritos();
             }
 
         }
@@ -43,14 +44,19 @@ namespace tp_webforms_gottig_ramirez
             }
         }
 
+        private void crearSessionFavoritos()
+        {
+            if (Session["Favoritos"] == null)
+            {
+                List<Articulo> articulosFavoritosList = new List<Articulo>();
+                Session.Add("Favoritos", articulosFavoritosList);
+            }
+        }
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             //si el carrito está nulo, lo agregi a la Session
-            if (Session["Carrito"] == null)
-            {
-                carrito = new Carrito();
-                Session.Add("Carrito", carrito);
-            }
+            crearSessionCarrito();
 
             //busco id del Articulo seleccionado
             int idArticuloSeleccionado = Convert.ToInt32(((Button)sender).CommandArgument);
@@ -75,6 +81,22 @@ namespace tp_webforms_gottig_ramirez
                 };
                 detalleCarritoList.Add(nuevoDetalle);
             }
+        }
+
+        protected void btnFavorito_Click(object sender, EventArgs e)
+        {
+            crearSessionFavoritos();
+
+            int idArticuloSeleccionado = Convert.ToInt32(((Button)sender).CommandArgument);
+            Articulo articuloSeleccionado = negocio.ListarArticulos().Find(x => x.Id == idArticuloSeleccionado);
+
+            List<Articulo> articulosFavoritosList = ((List<Articulo>)Session["Favoritos"]);
+
+            if (!articulosFavoritosList.Any(x => x.Id == idArticuloSeleccionado))
+            {
+                articulosFavoritosList.Add(articuloSeleccionado);
+            }
+           
         }
     }
 }
