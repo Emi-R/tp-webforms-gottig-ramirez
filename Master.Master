@@ -7,7 +7,7 @@
     <title>Virtual Shop Web</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-     <%-- Agrego Icons --%>
+    <%-- Agrego Icons --%>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <%-- Fuentes de Google --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
             <%-- Barra de navegacion --%>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand title" href="#">Virtual Shop</a>
+                    <a class="navbar-brand title" href="Home.aspx">Virtual Shop</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -39,13 +39,65 @@
                         </ul>
                     </div>
 
-                    <div>
-                        <span><a class="icon-favoritos"><i class="uil uil-heart-alt"></i></a></span>
-                        <span><a class="icon-favoritos"><i class="uil uil-shopping-cart"></i></a></span>
+                    <div class="row m-1">
+                        <div class="col-6 dropstart">
+                            <button class="btn icon-favoritos dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <i class="uil uil-heart-alt"></i>
+
+                            </button>
+                            <ul class=" dropdown-menu">
+                                <li class="dropdown-item ">
+                                    <asp:Repeater runat="server" ID="repeaterFavoritos">
+                                        <ItemTemplate>
+                                            <div class="col m-4" style="width: 400px;">
+                                                <div class="card m-auto p-2" style="max-width: 540px;">
+                                                    <div class="row g-0">
+                                                        <div class="col-md-3">
+                                                            <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-4" alt="...">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body" style="word-break: break-all; white-space: normal;">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col">
+
+                                                                        <p class="card-text"><small class="text-muted">Cod: <%#Eval("Codigo") %></small></p>
+                                                                        <p class="card-text " style="word-break: break-all; white-space: normal;">
+                                                                            <%#Eval("Descripcion")%>
+                                                                        </p>
+                                                                        <p class="card-text mt-2">$ <%#Eval("Precio") %></p>
+                                                                    </div>
+                                                                    <%--                                                                <div class="col-md-3 m-auto">
+                                                                    <asp:Button ID="btnAgregar" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" class="btn btn-outline-success" runat="server" Text="Agregar" />
+                                                                    <asp:Button ID="btnFavorito" class="btn btn-outline-danger mt-3" OnClick="btnFavorito_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" runat="server" Text="Favorito" />
+                                                                </div>--%>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-6">
+                            <a class="icon-favoritos"><i class="uil uil-shopping-cart"></i></a>
+                        </div>
                     </div>
                 </div>
             </nav>
             <%-- Fin Barra de navegacion --%>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
