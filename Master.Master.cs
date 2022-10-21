@@ -13,6 +13,8 @@ namespace tp_webforms_gottig_ramirez
         protected void Page_Load(object sender, EventArgs e)
         {
             verificarSessionFavoritos();
+            verificarSessionCarrito();
+
         }
 
         private void verificarSessionFavoritos()
@@ -23,5 +25,16 @@ namespace tp_webforms_gottig_ramirez
                 repeaterFavoritos.DataBind();
             }
         }
+
+        private void verificarSessionCarrito()
+        {
+            if (Session["Carrito"] != null)
+            {
+
+                RepeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
+                RepeaterCarrito.DataBind();
+            }
+        }
+
     }
 }

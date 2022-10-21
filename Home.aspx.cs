@@ -33,7 +33,6 @@ namespace tp_webforms_gottig_ramirez
             listaArticulos = negocio.ListarArticulos();
             repeaterArticulos.DataSource = listaArticulos;
             repeaterArticulos.DataBind();
-
         }
         private void crearSessionCarrito()
         {
@@ -42,6 +41,7 @@ namespace tp_webforms_gottig_ramirez
                 carrito = new Carrito();
                 Session.Add("Carrito", carrito);
             }
+            
         }
 
         private void crearSessionFavoritos()
@@ -69,10 +69,12 @@ namespace tp_webforms_gottig_ramirez
             {
                 listaArticulos = negocio.ListarArticulos();
                 Articulo articuloSeleccionado = listaArticulos.Find(x => x.Id == idArticuloSeleccionado);
+
                 CarritoDetalle nuevoDetalle = new CarritoDetalle()
                 {
                     IdArticulo = articuloSeleccionado.Id,
                     Nombre = articuloSeleccionado.Nombre,
+                    UrlImagen = articuloSeleccionado.ImagenUrl,
                     Codigo = articuloSeleccionado.Codigo,
                     Descripcion = articuloSeleccionado.Descripcion,
                     Cantidad = 1,
@@ -81,6 +83,7 @@ namespace tp_webforms_gottig_ramirez
                 };
                 detalleCarritoList.Add(nuevoDetalle);
             }
+            detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
         }
 
         protected void btnFavorito_Click(object sender, EventArgs e)
