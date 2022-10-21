@@ -45,10 +45,11 @@
                                 <i class="uil uil-heart-alt"></i>
 
                             </button>
-                            <ul class=" dropdown-menu">
-                                <li class="dropdown-item ">
-                                    <asp:Repeater runat="server" ID="repeaterFavoritos">
-                                        <ItemTemplate>
+                            <ul class=" dropdown-menu" style="height: 500px; overflow-y: auto;">
+
+                                <asp:Repeater runat="server" ID="repeaterFavoritos">
+                                    <ItemTemplate>
+                                        <li class="dropdown-item ">
                                             <div class="col m-4" style="width: 400px;">
                                                 <div class="card m-auto p-2" style="max-width: 540px;">
                                                     <div class="row g-0">
@@ -83,9 +84,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </li>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
 
                             </ul>
                         </div>

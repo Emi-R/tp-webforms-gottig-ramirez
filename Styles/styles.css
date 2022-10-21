@@ -24,3 +24,7 @@ body {
     text-decoration:none !important;
     margin:10px
 }
+
+.dropdown-menu {
+    --bs-dropdown-link-active-bg: red !important;
+}
