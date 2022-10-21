@@ -47,7 +47,7 @@
                                 <i class="uil uil-heart-alt"></i> Mis Favoritos
 
                             </button>
-                            <ul class=" dropdown-menu" style="height: 500px; overflow-y: auto;">
+                            <ul class=" dropdown-menu" style="max-height: 500px; overflow-y: auto;">
 
                                 <asp:Repeater runat="server" ID="repeaterFavoritos">
                                     <ItemTemplate>
