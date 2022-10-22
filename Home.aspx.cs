@@ -101,7 +101,11 @@ namespace tp_webforms_gottig_ramirez
             {
                 articulosFavoritosList.Add(articuloSeleccionado);
             }
-           
+
+
+            repeaterFavoritos.DataSource = ((List<Articulo>)Session["Favoritos"]);
+            repeaterFavoritos.DataBind();
+
         }
     }
 }
