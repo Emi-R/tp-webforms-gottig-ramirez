@@ -17,8 +17,6 @@ namespace tp_webforms_gottig_ramirez
         MarcaNegocio marcaNegocio = new MarcaNegocio();
         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -32,11 +30,10 @@ namespace tp_webforms_gottig_ramirez
                 inicializarDropwDownCategoria();
 
                 lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
+                lblCantProd.Text = "Cant. Productos: " + ((Carrito)Session["Carrito"]).cantProductos.ToString();
             }
-
-
-
         }
+
         private void listarArticulos()
         {
 
@@ -44,6 +41,7 @@ namespace tp_webforms_gottig_ramirez
             repeaterArticulos.DataSource = listaArticulos;
             repeaterArticulos.DataBind();
         }
+
         private void crearSessionCarrito()
         {
             if (Session["Carrito"] == null)
@@ -74,8 +72,8 @@ namespace tp_webforms_gottig_ramirez
             List<Marca> marcas = new List<Marca>();
             marcas.Add(new Marca() { Descripcion = "-- Seleccionar --" });
             marcas.AddRange(marcaNegocio.listar());
-            
-            DropDownListMarca.DataSource = marcas;        
+
+            DropDownListMarca.DataSource = marcas;
             DropDownListMarca.DataBind();
         }
 
@@ -110,8 +108,8 @@ namespace tp_webforms_gottig_ramirez
                 detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado).Cantidad++;
                 aux.PrecioTotal += aux.PrecioUnitario;
 
+                ((Carrito)Session["Carrito"]).ImporteTotal += aux.PrecioUnitario;
             }
-
             else
             {
                 listaArticulos = negocio.ListarArticulos();
@@ -133,12 +131,12 @@ namespace tp_webforms_gottig_ramirez
                 detalleCarritoList.Add(nuevoDetalle);
             }
 
-
-
+            ((Carrito)Session["Carrito"]).cantProductos++;
             repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
             repeaterCarrito.DataBind();
 
             lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
+            lblCantProd.Text = "Cant Productos: " + ((Carrito)Session["Carrito"]).cantProductos.ToString();
         }
 
         protected void btnFavorito_Click(object sender, EventArgs e)
@@ -202,13 +200,39 @@ namespace tp_webforms_gottig_ramirez
                 listaArticulos = listaArticulos.Where(x => x.Marca.Descripcion == filtroMarcas).ToList();
             }
 
-            if( listaArticulos.Any(x => x.Categoria != null && x.Categoria.Descripcion == filtroCategorias))
+            if (listaArticulos.Any(x => x.Categoria != null && x.Categoria.Descripcion == filtroCategorias))
             {
                 listaArticulos = listaArticulos.Where(x => x.Categoria.Descripcion == filtroCategorias).ToList();
             }
 
             repeaterArticulos.DataSource = listaArticulos;
             repeaterArticulos.DataBind();
+        }
+
+        protected void btnEliminarCar_Click(object sender, EventArgs e)
+        {
+            int idArticuloSeleccionado = Convert.ToInt32(((Button)sender).CommandArgument);
+            
+            List<CarritoDetalle> detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
+
+            // Busca el precio unitario y la cantidad del articulo a eliminar
+            float importe = detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado).PrecioUnitario;
+            int cantidad = detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado).Cantidad;
+
+            // Elimina el precio por la cantidad que habia en el carrito
+            ((Carrito)Session["Carrito"]).ImporteTotal -= (importe * cantidad);
+
+            // Elimina el articulo de la lista detalleCarrito
+            detalleCarritoList.RemoveAll(x => x.IdArticulo == idArticuloSeleccionado);
+
+            // Resta la cantidad de ese articulo a la cantidad de productos en la session (para cambiar el label del offcanvas)
+            ((Carrito)Session["Carrito"]).cantProductos -= cantidad;
+
+            lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
+            lblCantProd.Text = "Cant Productos: " + ((Carrito)Session["Carrito"]).cantProductos.ToString();
+
+            repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
+            repeaterCarrito.DataBind();
         }
     }
 }

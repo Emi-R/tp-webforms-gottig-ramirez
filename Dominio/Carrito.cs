@@ -12,8 +12,10 @@ namespace Dominio
         {
             CarritoDetalleList = new List<CarritoDetalle>();
             ImporteTotal = 0;
+            cantProductos = 0;
         }
         public string Usuario { get; set; }
+        public int cantProductos { get; set; }
         public List<CarritoDetalle> CarritoDetalleList { get; set; }
         public DateTime FechaCompra { get; set; }
         public float ImporteTotal { get; set; }
