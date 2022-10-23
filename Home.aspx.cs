@@ -190,20 +190,31 @@ namespace tp_webforms_gottig_ramirez
         private void filtrar()
         {
             listaArticulos = negocio.ListarArticulos();
+            var listaMarcas = marcaNegocio.listar();
+            var listaCategorias = categoriaNegocio.listar();
 
             var filtroMarcas = DropDownListMarca.SelectedItem.Text;
 
             var filtroCategorias = DropDownListCategoria.SelectedItem.Text;
 
-            if (listaArticulos.Any(x => x.Marca != null && x.Marca.Descripcion == filtroMarcas))
+            //chequea que la marca exista en la DB
+
+            if (listaMarcas.Any(x => x.Descripcion == filtroMarcas))
             {
-                listaArticulos = listaArticulos.Where(x => x.Marca.Descripcion == filtroMarcas).ToList();
+                //chequea que la propiedad Marca del Objeto no este nula
+
+                listaArticulos = listaArticulos.Where(x => x.Marca?.Descripcion == filtroMarcas).ToList();
+
             }
 
-            if (listaArticulos.Any(x => x.Categoria != null && x.Categoria.Descripcion == filtroCategorias))
+
+            if (listaCategorias.Any(x => x.Descripcion == filtroCategorias))
             {
-                listaArticulos = listaArticulos.Where(x => x.Categoria.Descripcion == filtroCategorias).ToList();
+
+                listaArticulos = listaArticulos.Where(x => x.Categoria?.Descripcion == filtroCategorias).ToList();
+
             }
+
 
             repeaterArticulos.DataSource = listaArticulos;
             repeaterArticulos.DataBind();
@@ -212,7 +223,7 @@ namespace tp_webforms_gottig_ramirez
         protected void btnEliminarCar_Click(object sender, EventArgs e)
         {
             int idArticuloSeleccionado = Convert.ToInt32(((Button)sender).CommandArgument);
-            
+
             List<CarritoDetalle> detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
 
             // Busca el precio unitario y la cantidad del articulo a eliminar

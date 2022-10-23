@@ -154,25 +154,26 @@
         <div class="offcanvas-body">
             <asp:Repeater runat="server" ID="repeaterFavoritos">
                 <ItemTemplate>
-                    <li class="dropdown-item ">
-                        <div class="col m-4" style="width: 85%;">
-                            <div class="card m-auto p-2" style="max-width: 540px;">
+
+                    <div class="row" style="width: 100%">
+                        <div class="col m-2" style="width: 85%; height: 180px">
+                            <div class="card m-auto p-1" style="max-width: 540px;">
                                 <div class="row g-0">
                                     <div class="col-md-3">
-                                        <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-4" alt="...">
+                                        <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-2" alt="...">
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="card-body" style="word-break: break-all; white-space: normal;">
-                                            <div class="row">
+                                        <div class="card-body p-2" style="word-break: break-all; white-space: normal;">
+                                            <div class="row p-0 m-0">
                                                 <div class="col">
-                                                    <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                                                    <h5 class="card-title p-0 m-1"><%#Eval("Nombre") %></h5>
                                                     <p class="card-text"><small class="text-muted">Cod: <%#Eval("Codigo") %></small></p>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row p-0 m-0">
                                                 <div class="col">
-                                                    <p class="card-text mt-2">$ <%#Eval("Precio") %></p>
+                                                    <p class="card-text">$ <%#Eval("Precio") %></p>
                                                 </div>
                                                 <%--                                                <div class="col-md-4 m-auto">
                                                     <asp:Button ID="btnEliminarFav" CssClass="btn-close" OnClick="btnEliminarFav_Click" runat="server" Text="Eliminar" />
@@ -182,7 +183,8 @@
                                     </div>
                                 </div>
                             </div>
-                    </li>
+                        </div>
+                    </div>
                 </ItemTemplate>
             </asp:Repeater>
 
