@@ -4,13 +4,12 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="container mt-2" style="margin-left: 50px">
         <div class="row pt-4 pb-4">
-            <div class="col-4 text-center">
+            <div class="col-2 text-center">
                 <asp:TextBox CssClass="form-control me-2" ID="txtBuscarNom" PlaceHolder="Buscar por nombre" runat="server"></asp:TextBox>
             </div>
-            <div class="col-8">
+            <div class="col-2">
                 <asp:Button CssClass="btn btn-info" ID="btnBuscarNom" OnClick="btnBuscarNom_Click" runat="server" Text="Buscar" />
             </div>
         </div>
@@ -83,10 +82,6 @@
 
                 </div>
             </div>
-            <div class="col-1">
-                <div class="row m-1">
-                </div>
-            </div>
         </div>
     </div>
 
@@ -130,8 +125,7 @@
                                                         <p class="card-text mt-2">$ <%#Eval("PrecioUnitario") %></p>
                                                         <div class="col-md-4 m-auto">
                                                             <small>
-
-                                                                <asp:Button ID="btnEliminarCar" CssClass=" btn btn-close btn-danger" OnClick="btnEliminarCar_Click"  CommandArgument='<%#Eval("IdArticulo") %>' CommandName="IdArticulo" runat="server" Text="" />
+                                                                <asp:Button ID="btnEliminarCar" CssClass=" btn btn-close btn-danger" OnClick="btnEliminarCar_Click" CommandArgument='<%#Eval("IdArticulo") %>' CommandName="IdArticulo" runat="server" Text="" />
                                                             </small>
                                                         </div>
                                                     </div>
