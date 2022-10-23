@@ -14,6 +14,9 @@ namespace tp_webforms_gottig_ramirez
         public List<Articulo> listaArticulos = new List<Articulo>();
         public Carrito carrito;
         public ArticuloNegocio negocio = new ArticuloNegocio();
+        MarcaNegocio marcaNegocio = new MarcaNegocio();
+        CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +28,9 @@ namespace tp_webforms_gottig_ramirez
                 listarArticulos();
                 crearSessionCarrito();
                 crearSessionFavoritos();
+                inicializarDropwDownMarca();
+                inicializarDropwDownCategoria();
+
                 lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
             }
 
@@ -45,7 +51,7 @@ namespace tp_webforms_gottig_ramirez
                 carrito = new Carrito();
                 Session.Add("Carrito", carrito);
             }
-            
+
         }
 
         private void crearSessionFavoritos()
@@ -56,6 +62,19 @@ namespace tp_webforms_gottig_ramirez
                 Session.Add("Favoritos", articulosFavoritosList);
             }
         }
+
+        private void inicializarDropwDownMarca()
+        {
+            DropDownListMarca.DataSource = marcaNegocio.listar();
+            DropDownListMarca.DataBind();
+        }
+
+        private void inicializarDropwDownCategoria()
+        {
+            DropDownListCategoria.DataSource = categoriaNegocio.listar();
+            DropDownListCategoria.DataBind();
+        }
+
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -140,6 +159,18 @@ namespace tp_webforms_gottig_ramirez
             repeaterArticulos.DataSource = null;
 
             repeaterArticulos.DataSource = listaFiltrada;
+            repeaterArticulos.DataBind();
+        }
+
+
+
+
+        protected void DropDownListMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selected = ((DropDownList)sender).SelectedItem;
+
+            listaArticulos = negocio.ListarArticulos();
+            repeaterArticulos.DataSource = listaArticulos.Where(x => x.Marca.Descripcion == selected.Text);
             repeaterArticulos.DataBind();
         }
     }

@@ -22,9 +22,9 @@
                         <label class="w-100">Marca </label>
 
                         <div class="btn-group">
-                            <%--<asp:DropDownList ID="DropDownListMarca" runat="server"  CssClass="btn btn-secondary dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="DropDownListMarca_SelectedIndexChanged">
+                            <asp:DropDownList ID="DropDownListMarca" runat="server"  CssClass="btn btn-secondary dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="DropDownListMarca_SelectedIndexChanged">
 
-                            </asp:DropDownList>--%>
+                            </asp:DropDownList>
 
                         </div>
                     </div>
