@@ -9,7 +9,7 @@
         <div class="row pt-4 pb-4 ">
             <div class="col-4 text-center">
                 
-                <asp:TextBox CssClass="form-control me-2" ID="TextBox1" PlaceHolder="Buscar por nombre" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="form-control me-2" ID="txtBuscarNom" PlaceHolder="Buscar por nombre" runat="server"></asp:TextBox>
             </div>
             <div class="col-8">
                 <asp:Button cssclass="btn btn-info" ID="btnBuscarNom" OnClick="btnBuscarNom_Click" runat="server" Text="Buscar" />

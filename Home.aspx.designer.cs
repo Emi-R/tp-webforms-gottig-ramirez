@@ -15,13 +15,13 @@ namespace tp_webforms_gottig_ramirez
     {
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtBuscarNom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtBuscarNom;
 
         /// <summary>
         /// btnBuscarNom control.

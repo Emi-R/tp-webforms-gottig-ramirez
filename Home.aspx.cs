@@ -112,6 +112,17 @@ namespace tp_webforms_gottig_ramirez
         protected void btnBuscarNom_Click(object sender, EventArgs e)
         {
 
+            string filtroNombre = txtBuscarNom.Text;
+            filtroNombre = filtroNombre.ToLower();
+
+            List<Articulo> listaFiltrada = new List<Articulo>();
+
+            listaFiltrada = negocio.ListarArticulos().Where(x => x.Nombre.ToLower().Contains(filtroNombre)).ToList();
+
+            repeaterArticulos.DataSource = null;
+
+            repeaterArticulos.DataSource = listaFiltrada;
+            repeaterArticulos.DataBind();
         }
     }
 }
