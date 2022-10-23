@@ -159,7 +159,7 @@
                         <div class="col m-2" style="width: 85%; height: 180px">
                             <div class="card m-auto p-1" style="max-width: 540px;">
                                 <div class="row g-0">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 m-auto">
                                         <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-2" alt="...">
                                     </div>
                                     <div class="col-md-8">
@@ -180,6 +180,13 @@
                                                 </div>--%>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                            <%--        //to do--%>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-warning" style="margin-left:60%">Eliminar</button>
+
                                     </div>
                                 </div>
                             </div>
