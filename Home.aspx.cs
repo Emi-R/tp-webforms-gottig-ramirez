@@ -108,5 +108,10 @@ namespace tp_webforms_gottig_ramirez
             repeaterFavoritos.DataBind();
 
         }
+
+        protected void btnBuscarNom_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
