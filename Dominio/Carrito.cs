@@ -11,7 +11,7 @@ namespace Dominio
         public Carrito()
         {
             CarritoDetalleList = new List<CarritoDetalle>();
-            
+            ImporteTotal = 0;
         }
         public string Usuario { get; set; }
         public List<CarritoDetalle> CarritoDetalleList { get; set; }
