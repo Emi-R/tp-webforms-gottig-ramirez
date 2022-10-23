@@ -12,19 +12,7 @@ namespace tp_webforms_gottig_ramirez
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            verificarSessionCarrito();
 
-        }
-
-
-        private void verificarSessionCarrito()
-        {
-            if (Session["Carrito"] != null)
-            {
-
-                repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
-                repeaterCarrito.DataBind();
-            }
         }
 
     }

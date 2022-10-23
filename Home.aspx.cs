@@ -85,7 +85,9 @@ namespace tp_webforms_gottig_ramirez
                 nuevoDetalle.PrecioTotal = ((Carrito)Session["Carrito"]).ImporteTotal;
                 detalleCarritoList.Add(nuevoDetalle);
             }
-            detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
+
+            repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
+            repeaterCarrito.DataBind();
         }
 
         protected void btnFavorito_Click(object sender, EventArgs e)
@@ -101,7 +103,6 @@ namespace tp_webforms_gottig_ramirez
             {
                 articulosFavoritosList.Add(articuloSeleccionado);
             }
-
 
             repeaterFavoritos.DataSource = ((List<Articulo>)Session["Favoritos"]);
             repeaterFavoritos.DataBind();
