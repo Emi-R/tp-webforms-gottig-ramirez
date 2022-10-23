@@ -25,7 +25,7 @@ namespace tp_webforms_gottig_ramirez
                 listarArticulos();
                 crearSessionCarrito();
                 crearSessionFavoritos();
-                lblImporteTotal.Text = "Importe total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
+                lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
             }
 
 
@@ -105,7 +105,7 @@ namespace tp_webforms_gottig_ramirez
             repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
             repeaterCarrito.DataBind();
 
-            lblImporteTotal.Text = "Importe total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
+            lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
         }
 
         protected void btnFavorito_Click(object sender, EventArgs e)

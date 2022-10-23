@@ -70,13 +70,16 @@
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Su Carrito</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="alert alert-warning mx-5">
+            <asp:Label ID="lblImporteTotal" runat="server" Text=""></asp:Label>
+        </div>
+        <div>
             <div class="row">
                 <asp:Repeater runat="server" ID="repeaterCarrito">
                     <ItemTemplate>
                         <li class="dropdown-item">
                             <div class="col m-4" style="width: 85%;">
-                                <div class="card m-auto p-2" style="max-width: 540px;">
+                                <div class="card mx-3 my-1" style="max-width: 540px;">
                                     <div class="row g-0">
                                         <div class="col-md-3">
                                             <img src="<%#Eval("UrlImagen")%>" class="img-fluid rounded-start mt-4" alt="...">
@@ -106,7 +109,6 @@
                 </asp:Repeater>
             </div>
             <div class="row">
-                <asp:Label ID="lblImporteTotal" runat="server" Text=""></asp:Label>
             </div>
 
 

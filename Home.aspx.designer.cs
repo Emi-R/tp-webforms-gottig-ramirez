@@ -42,15 +42,6 @@ namespace tp_webforms_gottig_ramirez
         protected global::System.Web.UI.WebControls.Repeater repeaterArticulos;
 
         /// <summary>
-        /// repeaterCarrito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterCarrito;
-
-        /// <summary>
         /// lblImporteTotal control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace tp_webforms_gottig_ramirez
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblImporteTotal;
+
+        /// <summary>
+        /// repeaterCarrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repeaterCarrito;
 
         /// <summary>
         /// repeaterFavoritos control.
