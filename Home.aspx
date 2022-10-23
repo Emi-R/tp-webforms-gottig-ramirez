@@ -8,7 +8,8 @@
     <div class="container mt-2">
         <div class="row pt-4 pb-4 ">
             <div class="col-4 text-center">
-                <input class="form-control me-2" style="width:100%" type="search" placeholder="Buscar por nombre" aria-label="Search">
+                
+                <asp:TextBox CssClass="form-control me-2" ID="TextBox1" PlaceHolder="Buscar por nombre" runat="server"></asp:TextBox>
             </div>
             <div class="col-8">
                 <asp:Button cssclass="btn btn-info" ID="btnBuscarNom" OnClick="btnBuscarNom_Click" runat="server" Text="Buscar" />
