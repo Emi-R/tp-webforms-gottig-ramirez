@@ -37,7 +37,7 @@
 
                         <div class="btn-group">
 
-                          <asp:DropDownList f ID="DropDownListCategoria" runat="server" CssClass="btn btn-secondary dropdown-toggle">
+                          <asp:DropDownList f ID="DropDownListCategoria" runat="server" CssClass="btn btn-secondary dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="DropDownListCategoria_SelectedIndexChanged">
 
                             </asp:DropDownList>
                         </div>
@@ -145,7 +145,7 @@
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFavoritos" aria-labelledby="offcanvasFavoritosLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasFavoritosLabel">Favoritos</h5>
+            <h5 class="offcanvas-title" id="offcanvasFavoritosLabel">  <i class="uil uil-heart-alt"></i> Favoritos</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
         <div class="offcanvas-body">

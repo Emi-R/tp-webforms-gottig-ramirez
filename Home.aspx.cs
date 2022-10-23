@@ -61,17 +61,31 @@ namespace tp_webforms_gottig_ramirez
                 List<Articulo> articulosFavoritosList = new List<Articulo>();
                 Session.Add("Favoritos", articulosFavoritosList);
             }
+            else
+            {
+
+                repeaterFavoritos.DataSource = ((List<Articulo>)Session["Favoritos"]);
+                repeaterFavoritos.DataBind();
+            }
         }
 
         private void inicializarDropwDownMarca()
         {
-            DropDownListMarca.DataSource = marcaNegocio.listar();
+            List<Marca> marcas = new List<Marca>();
+            marcas.Add(new Marca() { Descripcion = "-- Seleccionar --" });
+            marcas.AddRange(marcaNegocio.listar());
+            
+            DropDownListMarca.DataSource = marcas;        
             DropDownListMarca.DataBind();
         }
 
         private void inicializarDropwDownCategoria()
         {
-            DropDownListCategoria.DataSource = categoriaNegocio.listar();
+            List<Categoria> categorias = new List<Categoria>();
+            categorias.Add(new Categoria() { Descripcion = "-- Seleccionar --" });
+            categorias.AddRange(categoriaNegocio.listar());
+
+            DropDownListCategoria.DataSource = categorias;
             DropDownListCategoria.DataBind();
         }
 
@@ -167,10 +181,33 @@ namespace tp_webforms_gottig_ramirez
 
         protected void DropDownListMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = ((DropDownList)sender).SelectedItem;
+            filtrar();
+        }
 
+        protected void DropDownListCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtrar();
+        }
+
+        private void filtrar()
+        {
             listaArticulos = negocio.ListarArticulos();
-            repeaterArticulos.DataSource = listaArticulos.Where(x => x.Marca.Descripcion == selected.Text);
+
+            var filtroMarcas = DropDownListMarca.SelectedItem.Text;
+
+            var filtroCategorias = DropDownListCategoria.SelectedItem.Text;
+
+            if (listaArticulos.Any(x => x.Marca != null && x.Marca.Descripcion == filtroMarcas))
+            {
+                listaArticulos = listaArticulos.Where(x => x.Marca.Descripcion == filtroMarcas).ToList();
+            }
+
+            if( listaArticulos.Any(x => x.Categoria != null && x.Categoria.Descripcion == filtroCategorias))
+            {
+                listaArticulos = listaArticulos.Where(x => x.Categoria.Descripcion == filtroCategorias).ToList();
+            }
+
+            repeaterArticulos.DataSource = listaArticulos;
             repeaterArticulos.DataBind();
         }
     }
