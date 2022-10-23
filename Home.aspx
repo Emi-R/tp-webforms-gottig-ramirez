@@ -11,7 +11,7 @@
                 <input class="form-control me-2" style="width:100%" type="search" placeholder="Buscar por nombre" aria-label="Search">
             </div>
             <div class="col-8">
-                <button class="btn btn-info" type="submit">Buscar</button>
+                <asp:Button cssclass="btn btn-info" ID="btnBuscarNom" OnClick="btnBuscarNom_Click" runat="server" Text="Buscar" />
             </div>
         </div>
         <div class="row">
