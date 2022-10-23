@@ -41,12 +41,12 @@
                         </ul>
                     </div>
 
-                    <div class="row m-1">
-                        <div class="col-4 dropstart">
-                            <a class="btn btn-success icon-favoritos" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarritoLabel">
-                                <i class="uil uil-shopping-cart"></i>Carrito</a>
+                    <div class="row" style="width:350px;">
+                        <div class="col-6 dropstart p-0" style="width:120px ">
+                            <a   class="btn btn-success icon-favoritos" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarritoLabel">
+                                <i class="uil uil-shopping-cart" ></i>Carrito</a>
                         </div>
-                        <div class="col-8">
+                        <div class="col-6 p-0">
                                 <a class="btn btn-danger icon-favoritos" data-bs-toggle="offcanvas" href="#offcanvasFavoritos" role="button" aria-controls="offcanvasFavoritoLabel">
                                 <i class="uil uil-heart-alt"></i>Mis Favoritos
                                 </a>
