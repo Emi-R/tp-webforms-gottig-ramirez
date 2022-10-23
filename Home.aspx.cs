@@ -20,15 +20,19 @@ namespace tp_webforms_gottig_ramirez
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 //funciones al cargar la pagina, para listar articulos y cargar la session
                 listarArticulos();
                 crearSessionCarrito();
                 crearSessionFavoritos();
+                lblImporteTotal.Text = "Importe total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
                 inicializarDropwDownMarca();
                 inicializarDropwDownCategoria();
             }
+
+
 
         }
         private void listarArticulos()
@@ -79,7 +83,17 @@ namespace tp_webforms_gottig_ramirez
             List<CarritoDetalle> detalleCarritoList = ((Carrito)Session["Carrito"]).CarritoDetalleList;
 
             //si la session del carrito no está vacia, busco el Articulo y sumo cantidad, si no lo agrego a la lista de la Session
-            if (detalleCarritoList != null && detalleCarritoList.Any(x => x.IdArticulo == idArticuloSeleccionado)) detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado).Cantidad++;
+            if (detalleCarritoList != null && detalleCarritoList.Any(x => x.IdArticulo == idArticuloSeleccionado))
+            {
+
+                CarritoDetalle aux = new CarritoDetalle();
+                aux = detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado);
+
+                detalleCarritoList.Find(x => x.IdArticulo == idArticuloSeleccionado).Cantidad++;
+                aux.PrecioTotal += aux.PrecioUnitario;
+
+            }
+
             else
             {
                 listaArticulos = negocio.ListarArticulos();
@@ -94,15 +108,19 @@ namespace tp_webforms_gottig_ramirez
                     Descripcion = articuloSeleccionado.Descripcion,
                     Cantidad = 1,
                     PrecioUnitario = articuloSeleccionado.Precio,
+                    PrecioTotal = articuloSeleccionado.Precio
                 };
 
                 ((Carrito)Session["Carrito"]).ImporteTotal += nuevoDetalle.PrecioUnitario;
-                nuevoDetalle.PrecioTotal = ((Carrito)Session["Carrito"]).ImporteTotal;
                 detalleCarritoList.Add(nuevoDetalle);
             }
 
+
+
             repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
             repeaterCarrito.DataBind();
+
+            lblImporteTotal.Text = "Importe total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
         }
 
         protected void btnFavorito_Click(object sender, EventArgs e)
@@ -134,9 +152,6 @@ namespace tp_webforms_gottig_ramirez
         {
             var selected = ((DropDownList)sender).SelectedItem;
 
-            listaArticulos = negocio.ListarArticulos();
-            repeaterArticulos.DataSource = listaArticulos.Where(x => x.Marca.Descripcion == selected.Text);
-            repeaterArticulos.DataBind();
         }
 
     }
