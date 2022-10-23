@@ -5,17 +5,45 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container mt-2">
+    <div class="container mt-2" style="margin-left: 50px">
         <div class="row pt-4 pb-4 ">
             <div class="col-4 text-center">
-                <input class="form-control me-2" style="width:100%" type="search" placeholder="Buscar por nombre" aria-label="Search">
+                <input class="form-control me-2" style="width: 100%" type="search" placeholder="Buscar por nombre" aria-label="Search">
             </div>
             <div class="col-8">
-                <asp:Button cssclass="btn btn-info" ID="btnBuscarNom" OnClick="btnBuscarNom_Click" runat="server" Text="Buscar" />
+                <asp:Button CssClass="btn btn-info" ID="btnBuscarNom" OnClick="btnBuscarNom_Click" runat="server" Text="Buscar" />
             </div>
         </div>
         <div class="row">
-            <div class="col-11">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <label class="w-100">Marca </label>
+
+                        <div class="btn-group">
+                            <asp:DropDownList ID="DropDownListMarca" runat="server"  CssClass="btn btn-secondary dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="DropDownListMarca_SelectedIndexChanged">
+
+                            </asp:DropDownList>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col">
+                        <label class="w-100">Categoria </label>
+
+                        <div class="btn-group">
+
+                          <asp:DropDownList f ID="DropDownListCategoria" runat="server" CssClass="btn btn-secondary dropdown-toggle">
+
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10">
                 <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
 
                     <asp:Repeater runat="server" ID="repeaterArticulos">
