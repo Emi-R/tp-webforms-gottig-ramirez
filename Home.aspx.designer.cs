@@ -33,6 +33,15 @@ namespace tp_webforms_gottig_ramirez
         protected global::System.Web.UI.WebControls.Button btnBuscarNom;
 
         /// <summary>
+        /// DropDownListCategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategoria;
+
+        /// <summary>
         /// repeaterArticulos control.
         /// </summary>
         /// <remarks>

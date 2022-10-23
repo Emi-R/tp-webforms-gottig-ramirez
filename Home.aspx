@@ -22,9 +22,9 @@
                         <label class="w-100">Marca </label>
 
                         <div class="btn-group">
-                            <asp:DropDownList ID="DropDownListMarca" runat="server"  CssClass="btn btn-secondary dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="DropDownListMarca_SelectedIndexChanged">
+                            <%--<asp:DropDownList ID="DropDownListMarca" runat="server"  CssClass="btn btn-secondary dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="DropDownListMarca_SelectedIndexChanged">
 
-                            </asp:DropDownList>
+                            </asp:DropDownList>--%>
 
                         </div>
                     </div>
@@ -95,10 +95,10 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Su Carrito</h5>
+            <h5 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">Su Carrito</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
-        <div class="alert alert-warning mx-5">
+        <div class="alert alert-warning mx-auto text-center fw-bolder" style="width:40%">
             <asp:Label ID="lblImporteTotal" runat="server" Text=""></asp:Label>
         </div>
         <div>
