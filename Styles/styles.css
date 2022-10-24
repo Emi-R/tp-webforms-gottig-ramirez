@@ -28,3 +28,7 @@ body {
 .dropdown-menu {
     --bs-dropdown-link-active-bg: red !important;
 }
+
+.margin-left-65{
+    margin-left:65%;
+}

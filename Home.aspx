@@ -163,8 +163,8 @@
                 <ItemTemplate>
 
                     <div class="row" style="width: 100%">
-                        <div class="col m-2" style="width: 85%; height: 180px">
-                            <div class="card m-auto p-1" style="max-width: 540px;">
+                      
+                            <div class="col m-2 card p-1" style="max-width: 540px;">
                                 <div class="row g-0">
                                     <div class="col-md-3 m-auto">
                                         <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-2" alt="...">
@@ -182,22 +182,20 @@
                                                 <div class="col">
                                                     <p class="card-text">$ <%#Eval("Precio") %></p>
                                                 </div>
-                                                <%--                                                <div class="col-md-4 m-auto">
-                                                    <asp:Button ID="btnEliminarFav" CssClass="btn-close" OnClick="btnEliminarFav_Click" runat="server" Text="Eliminar" />
-                                                </div>--%>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <%--        //to do--%>
-                                    <div class="col">
-                                        <button type="button" class="btn btn-warning" style="margin-left: 60%">Eliminar</button>
+                                  
+                                    <div class="col text-center">
 
+                                        <asp:Button runat="server" CssClass="btn btn-warning" ID="btnEliminarFavorito" OnClick="btnEliminarFavorito_Click" Text="Eliminar"/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                    
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

@@ -246,5 +246,10 @@ namespace tp_webforms_gottig_ramirez
             repeaterCarrito.DataSource = ((Carrito)Session["Carrito"]).CarritoDetalleList;
             repeaterCarrito.DataBind();
         }
+
+        protected void btnEliminarFavorito_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
