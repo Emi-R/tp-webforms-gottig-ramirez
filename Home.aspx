@@ -67,7 +67,7 @@
                                                         <p class="card-text mt-2">$ <%#Eval("Precio") %></p>
                                                     </div>
                                                     <div class="col-md-3 m-auto">
-                                                        <asp:Button ID="btnAgregar" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" class="btn btn-outline-success" runat="server" Text="Agregar" />
+                                                        <asp:Button ID="liveToastBtn" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" class="btn btn-outline-success" runat="server" Text="Agregar" />
                                                         <asp:Button ID="btnFavorito" class="btn btn-outline-danger mt-3" OnClick="btnFavorito_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" runat="server" Text="Favorito" />
                                                     </div>
                                                 </div>
@@ -83,13 +83,17 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel" style="">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">Su Carrito</h5>
+            <h5 class="offcanvas-title fw-bold btn btn-success disabled" id="offcanvasExampleLabel"><i class="uil uil-shopping-cart">Su Carrito</i></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
+        <p class="placeholder-wave">
+            <span class="placeholder col-12 bg-warning"></span>
+        </p>
         <div class="row mx-2">
             <div class="alert alert-warning ms-4 text-center fw-bolder" style="width: 40%;">
                 <asp:Label ID="lblImporteTotal" runat="server" Text=""></asp:Label>
@@ -100,6 +104,9 @@
                 </small>
             </div>
         </div>
+        <p class="placeholder-wave">
+            <span class="placeholder col-12 bg-warning"></span>
+        </p>
         <div>
             <div class="row">
                 <asp:Repeater runat="server" ID="repeaterCarrito">
@@ -183,9 +190,9 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                            <%--        //to do--%>
+                                    <%--        //to do--%>
                                     <div class="col">
-                                        <button type="button" class="btn btn-warning" style="margin-left:60%">Eliminar</button>
+                                        <button type="button" class="btn btn-warning" style="margin-left: 60%">Eliminar</button>
 
                                     </div>
                                 </div>
@@ -194,8 +201,6 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-
-
         </div>
     </div>
 

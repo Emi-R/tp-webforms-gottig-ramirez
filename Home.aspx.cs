@@ -31,6 +31,7 @@ namespace tp_webforms_gottig_ramirez
 
                 lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
                 lblCantProd.Text = "Cant. Productos: " + ((Carrito)Session["Carrito"]).cantProductos.ToString();
+                
             }
         }
 
