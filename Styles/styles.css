@@ -7,6 +7,11 @@ body {
 .title {
     font-weight: 500 !important;
     font-style: italic;
+    color: #e1ae06 !important;
+}
+
+.item-nav {
+    color: #ffd800 !important;
 }
 
 .card {
@@ -15,8 +20,6 @@ body {
     height: 100% !important;
 }
 
-.precio {
-}
 
 .icon-favoritos {
     color: white !important;

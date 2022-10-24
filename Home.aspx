@@ -67,7 +67,7 @@
                                                         <p class="card-text mt-2">$ <%#Eval("Precio") %></p>
                                                     </div>
                                                     <div class="col-md-3 m-auto">
-                                                        <asp:Button ID="liveToastBtn" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" class="btn btn-outline-success" runat="server" Text="Agregar" />
+                                                        <asp:Button ID="btnAgregar" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" class="btn btn-outline-success" runat="server" Text="Agregar" />
                                                         <asp:Button ID="btnFavorito" class="btn btn-outline-danger mt-3" OnClick="btnFavorito_Click" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" runat="server" Text="Favorito" />
                                                     </div>
                                                 </div>
@@ -88,10 +88,10 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel" style="">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title fw-bold btn btn-success disabled" id="offcanvasExampleLabel"><i class="uil uil-shopping-cart">Su Carrito</i></h5>
+            <h5 class="offcanvas-title fw-bold btn btn-success disabled m-auto" id="offcanvasExampleLabel" style="width:100%" ><i class="uil uil-shopping-cart">Su Carrito</i></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body pt-0">
             <p class="placeholder-wave">
                 <span class="placeholder col-12 bg-warning"></span>
             </p>
