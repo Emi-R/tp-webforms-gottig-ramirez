@@ -37,7 +37,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="row" style="width: 350px;">
                         <div class="col-6 dropstart p-0" style="width: 130px">
                             <a class="btn btn-success icon-favoritos" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarritoLabel">
@@ -49,9 +48,7 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
-
             </nav>
             <%-- Fin Barra de navegacion --%>
 
