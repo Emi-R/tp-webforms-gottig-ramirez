@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel" style="">
@@ -91,49 +91,51 @@
             <h5 class="offcanvas-title fw-bold btn btn-success disabled" id="offcanvasExampleLabel"><i class="uil uil-shopping-cart">Su Carrito</i></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
-        <p class="placeholder-wave">
-            <span class="placeholder col-12 bg-warning"></span>
-        </p>
-        <div class="row mx-2">
-            <div class="alert alert-warning ms-4 text-center fw-bolder" style="width: 40%;">
-                <asp:Label ID="lblImporteTotal" runat="server" Text=""></asp:Label>
+        <div class="offcanvas-body">
+            <p class="placeholder-wave">
+                <span class="placeholder col-12 bg-warning"></span>
+            </p>
+            <div class="row mx-2">
+                <div class="alert alert-warning ms-4 text-center fw-bolder" style="width: 40%;">
+                    <asp:Label ID="lblImporteTotal" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="alert alert-warning mx-2 text-center fw-bolder" style="width: 45%">
+                    <small>
+                        <asp:Label ID="lblCantProd" runat="server" Text=""></asp:Label>
+                    </small>
+                </div>
             </div>
-            <div class="alert alert-warning mx-2 text-center fw-bolder" style="width: 45%">
-                <small>
-                    <asp:Label ID="lblCantProd" runat="server" Text=""></asp:Label>
-                </small>
-            </div>
-        </div>
-        <p class="placeholder-wave">
-            <span class="placeholder col-12 bg-warning"></span>
-        </p>
-        <div>
-            <div class="row">
-                <asp:Repeater runat="server" ID="repeaterCarrito">
-                    <ItemTemplate>
-                        <li class="dropdown-item">
-                            <div class="col m-4" style="width: 85%;">
-                                <div class="card mx-3 my-1" style="max-width: 540px;">
-                                    <div class="row g-0">
-                                        <div class="col-md-3">
-                                            <img src="<%#Eval("UrlImagen")%>" class="img-fluid rounded-start mt-4 text-center" alt="...">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body" style="word-break: break-all; white-space: normal;">
-                                                <div class="row">
-                                                    <div class="col-10">
-                                                        <h5 class="card-title"><%#Eval("Nombre") %></h5>
+            <p class="placeholder-wave">
+                <span class="placeholder col-12 bg-warning"></span>
+            </p>
+            <div>
+                <div class="row">
+                    <asp:Repeater runat="server" ID="repeaterCarrito">
+                        <ItemTemplate>
+                            <li class="dropdown-item">
+                                <div class="col m-4" style="width: 85%;">
+                                    <div class="card mx-3 my-1" style="max-width: 540px;">
+                                        <div class="row g-0">
+                                            <div class="col-md-3">
+                                                <img src="<%#Eval("UrlImagen")%>" class="img-fluid rounded-start mt-4 text-center" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body" style="word-break: break-all; white-space: normal;">
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p class="card-text mb-0"><small class="text-muted">Cod: <%#Eval("Codigo") %></small></p>
-                                                        <p class="card-text mt-2">$ <%#Eval("PrecioUnitario") %></p>
-                                                        <div class="col-md-4 m-auto">
-                                                            <small>
-                                                                <asp:Button ID="btnEliminarCar" CssClass=" btn btn-close btn-danger" OnClick="btnEliminarCar_Click" CommandArgument='<%#Eval("IdArticulo") %>' CommandName="IdArticulo" runat="server" Text="" />
-                                                            </small>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="card-text mb-0"><small class="text-muted">Cod: <%#Eval("Codigo") %></small></p>
+                                                            <p class="card-text mt-2">$ <%#Eval("PrecioUnitario") %></p>
+                                                            <div class="col-md-4 m-auto">
+                                                                <small>
+                                                                    <asp:Button ID="btnEliminarCar" CssClass=" btn btn-close btn-danger" OnClick="btnEliminarCar_Click" CommandArgument='<%#Eval("IdArticulo") %>' CommandName="IdArticulo" runat="server" Text="" />
+                                                                </small>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -141,15 +143,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
             </div>
-            <div class="row">
-            </div>
-
-
         </div>
     </div>
 
@@ -163,39 +161,39 @@
                 <ItemTemplate>
 
                     <div class="row" style="width: 100%">
-                      
-                            <div class="col m-2 card p-1" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-3 m-auto">
-                                        <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-2" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body p-2" style="word-break: break-all; white-space: normal;">
-                                            <div class="row p-0 m-0">
-                                                <div class="col">
-                                                    <h5 class="card-title p-0 m-1"><%#Eval("Nombre") %></h5>
-                                                    <p class="card-text"><small class="text-muted">Cod: <%#Eval("Codigo") %></small></p>
-                                                </div>
+
+                        <div class="col m-2 card p-1" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-3 m-auto">
+                                    <img src="<%#Eval("ImagenUrl")%>" class="img-fluid rounded-start mt-2" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-2" style="word-break: break-all; white-space: normal;">
+                                        <div class="row p-0 m-0">
+                                            <div class="col">
+                                                <h5 class="card-title p-0 m-1"><%#Eval("Nombre") %></h5>
+                                                <p class="card-text"><small class="text-muted">Cod: <%#Eval("Codigo") %></small></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-0 m-0">
+                                            <div class="col">
+                                                <p class="card-text">$ <%#Eval("Precio") %></p>
                                             </div>
 
-                                            <div class="row p-0 m-0">
-                                                <div class="col">
-                                                    <p class="card-text">$ <%#Eval("Precio") %></p>
-                                                </div>
-
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                  
-                                    <div class="col text-center">
+                            </div>
+                            <div class="row">
 
-                                        <asp:Button runat="server" CssClass="btn btn-warning" ID="btnEliminarFavorito" OnClick="btnEliminarFavorito_Click" Text="Eliminar"/>
-                                    </div>
+                                <div class="col text-center">
+
+                                    <asp:Button runat="server" CssClass="btn btn-warning" ID="btnEliminarFavorito" OnClick="btnEliminarFavorito_Click" Text="Eliminar" />
                                 </div>
                             </div>
-                    
+                        </div>
+
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
