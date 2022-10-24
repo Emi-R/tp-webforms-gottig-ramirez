@@ -191,7 +191,7 @@
                                   
                                     <div class="col text-center">
 
-                                        <asp:Button runat="server" CssClass="btn btn-warning" ID="btnEliminarFavorito" OnClick="btnEliminarFavorito_Click" Text="Eliminar"/>
+                                        <asp:Button runat="server" CssClass="btn btn-warning" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo"  ID="btnEliminarFavorito" OnClick="btnEliminarFavorito_Click" Text="Eliminar"/>
                                     </div>
                                 </div>
                             </div>

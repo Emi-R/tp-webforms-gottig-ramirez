@@ -31,7 +31,7 @@ namespace tp_webforms_gottig_ramirez
 
                 lblImporteTotal.Text = "Total: $ " + ((Carrito)Session["Carrito"]).ImporteTotal.ToString();
                 lblCantProd.Text = "Cant. Productos: " + ((Carrito)Session["Carrito"]).cantProductos.ToString();
-                
+
             }
         }
 
@@ -249,7 +249,15 @@ namespace tp_webforms_gottig_ramirez
 
         protected void btnEliminarFavorito_Click(object sender, EventArgs e)
         {
+            List<Articulo> articulosFavoritosList = ((List<Articulo>)Session["Favoritos"]);
 
+            int idArticuloSeleccionado = Convert.ToInt32(((Button)sender).CommandArgument);
+            var articuloSeleccionado = articulosFavoritosList.Find(x => x.Id == idArticuloSeleccionado);
+
+            articulosFavoritosList.Remove(articuloSeleccionado);
+
+            repeaterFavoritos.DataSource = articulosFavoritosList;
+            repeaterFavoritos.DataBind();
         }
     }
 }
